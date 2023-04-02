@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dist/main.css">
-    <script src="./dist/main.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./dist/main.css" />
+    <script src="./dist/main.js" defer></script>
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="nav-container">
+      <div id="search-div">
+        <input
+          type="text"
+          placeholder="Search books by year"
+          id="search-input"
+        />
+        <button type="submit" id="search-button">Submit</button>
+      </div>
+      <div id="external-buttons">
+        <a href="">GitHub</a>
+        <a href="">LinkedIn</a>
+      </div>
+    </div>
+
+    <div id="side-bar">
+      <button id="hardcover-fiction-button">HF</button>
+      <!-- Hardcover Fiction -->
+      <button id="paperback-fiction-button">PTF</button>
+      <!-- Paperback Trade Fiction -->
+      <button id="hardcover-nonfiction-button">HNF</button>
+      <!-- Hardcover Nonfiction -->
+      <button id="paperback-nonfiction-button">PNF</button>
+      <!-- Paperpack Nonfiction -->
+      <button id="advice-button">A, H, M</button>
+      <!-- Advice, How-To, and Misc. -->
+      <button id="mid-grade-hardcover-button">CMGH</button>
+      <!-- Children's Middle Grade Hardcover -->
+      <button id="picture-book-button">CPB</button>
+      <!-- Children's Picture Books -->
+      <button id="children-series-button">CS</button>
+      <!-- Children's Series -->
+      <button id="ya-hardcover-button">YAH</button>
+      <!-- Young Adult Hardcover -->
+    </div>
+    <main></main>
+  </body>
 </html>
