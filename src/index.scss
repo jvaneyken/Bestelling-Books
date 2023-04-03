@@ -40,21 +40,29 @@
     padding: 5px;
 }
 
+// #main-and-side-containter {
+//     display: flex;
+// }
+
 #side-bar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    display: inline-block;
     height: 800px;
     width: 150px;
     margin-top: 50px;
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
-#side-bar > button {
+#side-bar button {
     width: 75px;
     height: 75px;
     border-radius: 100px;
     box-shadow: .5px .5px grey;
     padding: 30px;
+}
+
+main {
+    margin-top: 50px;
+    vertical-align: top;
+    width: 500px;
+    display: inline-block;
 }

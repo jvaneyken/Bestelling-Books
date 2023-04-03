@@ -4,7 +4,8 @@ const apiURL = "https://api.nytimes.com/svc/books/v3/lists.json?list=hardcover-f
 
 let list = [];
 
-let searchInput = document.querySelector("#search-input")
+let searchInput = document.querySelector("#search-input");
+let mainContainer = document.querySelector("main");
 
 async function fetchData() {
     console.log(searchInput.value);
@@ -22,7 +23,7 @@ function createList() {
     list.forEach(result => {
         let listItem = document.createElement("li");
         listItem.innerHTML = result.book_details[0].title;
-        document.querySelector("main").appendChild(listItem);
+        mainContainer.appendChild(listItem);
     })
 }
 
