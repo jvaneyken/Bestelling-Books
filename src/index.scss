@@ -42,11 +42,15 @@
 }
 #external-buttons > a {
     text-decoration: none;
-    color: black;
+    color: lightgrey;
     background-color: #efefef;
     border-radius: 3px;
     padding: 5px;
     box-shadow: 0px 2px 2px grey;
+}
+
+#external-buttons > a:hover {
+    color: black;
 }
 
 #chart-button-container {
@@ -63,7 +67,7 @@
     position: relative;
     top: 1px;
     left: 1px;
-    width: 50px;
+    width: 100px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border: 1px solid black;
@@ -72,16 +76,26 @@
     box-shadow: 0px 0px 2px grey inset;
 }
 
+#chart-button:hover {
+    background-color: black;
+    color: white;
+}
+
 #list-button {
     position: relative;
     top: 1px;
     right: 1px;
-    width: 50px;
+    width: 100px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border: 1px solid black;
     border-bottom: none;
     background-color: white;
+}
+
+#list-button:hover {
+    background-color: black;
+    color: white;
 }
 
 

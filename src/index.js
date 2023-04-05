@@ -7,6 +7,8 @@ import bookFunction from "./scripts/data_chart";
 const apiURL = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=73W0ByfNVTxMkbhcn7rMWYUVQGPDej9z";
 
 let list = [];
+let booksArray = [];
+let weeksArray = [];
 
 let listName = "";
 
@@ -41,6 +43,18 @@ function createList() {
     })
 }
 
+function createCanvas() {
+    let canvasContainer = document.getElementById("canvas-container");
+    while (canvasContainer.firstChild) {
+        canvasContainer.removeChild(canvasContainer.firstChild);
+    }
+    
+    let canvas = document.createElement("canvas");
+    canvas.setAttribute('id', 'book-chart');
+    canvasContainer.appendChild(canvas);
+    return canvas;
+}
+
 
 
 
@@ -54,11 +68,19 @@ hardcoverFictionButton.addEventListener('click', async e => {
         e.preventDefault();
         await fetchData();
 
+        let canvas = createCanvas();
+        // createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
+        
+
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
-    
+    console.log("Hello there");
 })
 
 let paperbackFictionButton = document.getElementById("paperback-fiction-button")
@@ -70,6 +92,10 @@ paperbackFictionButton.addEventListener('click', async e => {
     }
         e.preventDefault();
         await fetchData();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
@@ -193,7 +219,7 @@ youngAdultHardcover.addEventListener('click', async e => {
 
 
 // CHART STUFF
-bookFunction();
+
 
 // let ctx = document.getElementById("book-chart");
 
