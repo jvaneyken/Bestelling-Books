@@ -1,7 +1,8 @@
-// https://api.nytimes.com/svc/books/v3/reviews.json
 
-// const { create } = require("core-js/core/object");
-// const { async } = require("regenerator-runtime");
+import bookFunction from "./scripts/data_chart";
+// console.log(bookChart);
+// import Chart from 'chart.js/auto'
+
 
 const apiURL = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=73W0ByfNVTxMkbhcn7rMWYUVQGPDej9z";
 
@@ -187,6 +188,36 @@ youngAdultHardcover.addEventListener('click', async e => {
         mainContainer.appendChild(ListHeader);
         createList();
 })
+
+
+
+
+// CHART STUFF
+bookFunction();
+
+// let ctx = document.getElementById("book-chart");
+
+// let books = list.map(book => {
+//     book.book_details[0].title;
+// })
+
+// const books = ["book1", "book2", "book3", "book4", "book5"];
+// const weeks = [5, 4, 1, 9, 24];
+
+
+// const bookChart = new Chart(ctx, {
+//     type: 'line',
+//     data: {
+//         labels: books,
+//         datasets: [{
+//             label: 'Just book stuff',
+//             data: weeks
+//             }]
+//     },
+// });
+
+
+
 
 
 
