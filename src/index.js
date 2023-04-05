@@ -80,7 +80,6 @@ hardcoverFictionButton.addEventListener('click', async e => {
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
-    console.log("Hello there");
 })
 
 let paperbackFictionButton = document.getElementById("paperback-fiction-button")
@@ -93,9 +92,11 @@ paperbackFictionButton.addEventListener('click', async e => {
         e.preventDefault();
         await fetchData();
 
+        let canvas = createCanvas();
+
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(booksArray, weeksArray);
+        bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
@@ -113,6 +114,12 @@ hardcoverNonfictionButton.addEventListener('click', async e => {
         e.preventDefault();
         await fetchData();
 
+        let canvas = createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
+
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
@@ -128,6 +135,12 @@ paperbackNonfictionButton.addEventListener('click', async e => {
     }
         e.preventDefault();
         await fetchData();
+
+        let canvas = createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
@@ -145,6 +158,12 @@ adviceButton.addEventListener('click', async e => {
         e.preventDefault();
         await fetchData();
 
+        let canvas = createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
+
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
@@ -160,6 +179,12 @@ midGradeHardcoverButton.addEventListener('click', async e => {
     }
         e.preventDefault();
         await fetchData();
+
+        let canvas = createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
@@ -177,6 +202,12 @@ pictureBookButton.addEventListener('click', async e => {
         e.preventDefault();
         await fetchData();
 
+        let canvas = createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
+
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
@@ -193,6 +224,12 @@ childrenSeries.addEventListener('click', async e => {
         e.preventDefault();
         await fetchData();
 
+        let canvas = createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
+
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
@@ -208,6 +245,12 @@ youngAdultHardcover.addEventListener('click', async e => {
     }
         e.preventDefault();
         await fetchData();
+
+        let canvas = createCanvas();
+
+        booksArray = list.map(book => book.book_details[0].title);
+        weeksArray = list.map(week => week.weeks_on_list);
+        bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
         ListHeader.innerHTML = list[0].display_name;
