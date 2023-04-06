@@ -24,7 +24,7 @@ let weeksArray = [];
 
 let listName = "";
 
-let dateOutput = "";
+let dateOutput;
 
 // let searchInput = document.querySelector("#search-input");
 let dateInput = document.getElementById("date-input");
@@ -91,11 +91,11 @@ function createCanvas() {
 let hardcoverFictionButton = document.getElementById("hardcover-fiction-button")
 hardcoverFictionButton.addEventListener('click', async e => {
     listName = "list=hardcover-fiction";
-    // if (dateOutput !== undefined) {
-        // listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    // } else {
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
         listUrl = `${apiURL}&${listName}`;
-    // }
+    }
     
     
     while (mainContainer.firstChild) {
@@ -122,7 +122,13 @@ hardcoverFictionButton.addEventListener('click', async e => {
 let paperbackFictionButton = document.getElementById("paperback-fiction-button")
 paperbackFictionButton.addEventListener('click', async e => {
     listName = "list=trade-fiction-paperback";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -145,7 +151,13 @@ paperbackFictionButton.addEventListener('click', async e => {
 let hardcoverNonfictionButton = document.getElementById("hardcover-nonfiction-button")
 hardcoverNonfictionButton.addEventListener('click', async e => {
     listName = "list=hardcover-nonfiction";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -168,7 +180,13 @@ hardcoverNonfictionButton.addEventListener('click', async e => {
 let paperbackNonfictionButton = document.getElementById("paperback-nonfiction-button")
 paperbackNonfictionButton.addEventListener('click', async e => {
     listName = "list=paperback-nonfiction";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -191,7 +209,13 @@ paperbackNonfictionButton.addEventListener('click', async e => {
 let adviceButton = document.getElementById("advice-button")
 adviceButton.addEventListener('click', async e => {
     listName = "list=advice-how-to-and-miscellaneous";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -214,7 +238,13 @@ adviceButton.addEventListener('click', async e => {
 let midGradeHardcoverButton = document.getElementById("mid-grade-hardcover-button")
 midGradeHardcoverButton.addEventListener('click', async e => {
     listName = "list=childrens-middle-grade-hardcover";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -237,7 +267,13 @@ midGradeHardcoverButton.addEventListener('click', async e => {
 let pictureBookButton = document.getElementById("picture-book-button")
 pictureBookButton.addEventListener('click', async e => {
     listName = "list=picture-books";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -260,7 +296,13 @@ pictureBookButton.addEventListener('click', async e => {
 let childrenSeries = document.getElementById("children-series-button")
 childrenSeries.addEventListener('click', async e => {
     listName = "list=series-books";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+    
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -283,7 +325,13 @@ childrenSeries.addEventListener('click', async e => {
 let youngAdultHardcover = document.getElementById("ya-hardcover-button")
 youngAdultHardcover.addEventListener('click', async e => {
     listName = "list=young-adult-hardcover";
-    listUrl = `${apiURL}&${listName}`
+
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
