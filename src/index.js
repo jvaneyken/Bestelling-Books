@@ -6,6 +6,8 @@ import bookFunction from "./scripts/data_chart";
 
 const apiURL = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=73W0ByfNVTxMkbhcn7rMWYUVQGPDej9z";
 
+// https://api.nytimes.com/svc/books/v3/lists/{date}/{list}.json
+
 let list = [];
 let booksArray = [];
 let weeksArray = [];
@@ -14,6 +16,10 @@ let listName = "";
 
 let searchInput = document.querySelector("#search-input");
 let mainContainer = document.querySelector("main");
+let canvasContainer = document.getElementById("canvas-container");
+
+canvasContainer.classList.add("hidden");
+
 let listUrl = "";
 
 async function fetchData() {
@@ -44,7 +50,6 @@ function createList() {
 }
 
 function createCanvas() {
-    let canvasContainer = document.getElementById("canvas-container");
     while (canvasContainer.firstChild) {
         canvasContainer.removeChild(canvasContainer.firstChild);
     }
@@ -259,6 +264,19 @@ youngAdultHardcover.addEventListener('click', async e => {
 })
 
 
+let chartButton = document.getElementById("chart-button");
+chartButton.addEventListener('click', e => {
+    e.preventDefault();
+    canvasContainer.classList.remove("hidden");
+    mainContainer.classList.add("hidden");
+})
+
+let listButton = document.getElementById("list-button");
+listButton.addEventListener('click', e => {
+    e.preventDefault();
+    mainContainer.classList.remove("hidden");
+    canvasContainer.classList.add("hidden");
+})
 
 
 // CHART STUFF
