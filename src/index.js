@@ -1,4 +1,5 @@
 
+
 import bookFunction from "./scripts/data_chart";
 // console.log(bookChart);
 // import Chart from 'chart.js/auto'
@@ -6,7 +7,16 @@ import bookFunction from "./scripts/data_chart";
 
 const apiURL = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=73W0ByfNVTxMkbhcn7rMWYUVQGPDej9z";
 
-// https://api.nytimes.com/svc/books/v3/lists/{date}/{list}.json
+// const dateURL = "https://api.nytimes.com/svc/books/v3/lists/2023-03-19/hardcover-fiction.json?api-key=73W0ByfNVTxMkbhcn7rMWYUVQGPDej9z";
+
+// async function notARealFunction() {
+//     let dateResponse = await fetch(dateURL);
+//     if (dateResponse.ok) {
+//         console.log(dateResponse);
+//     }
+// }
+
+// notARealFunction();
 
 let list = [];
 let booksArray = [];
@@ -14,7 +24,18 @@ let weeksArray = [];
 
 let listName = "";
 
-let searchInput = document.querySelector("#search-input");
+let dateOutput = "";
+
+// let searchInput = document.querySelector("#search-input");
+let dateInput = document.getElementById("date-input");
+dateInput.addEventListener('input', e => {
+    e.preventDefault();
+    dateOutput = e.target.value;
+})
+
+
+// if e.target.value is true, use value in url, else use 'current'
+
 let mainContainer = document.querySelector("main");
 let canvasContainer = document.getElementById("canvas-container");
 
@@ -36,11 +57,15 @@ async function fetchData() {
 function createList() {
     list.forEach(result => {
         let listDiv = document.createElement("div");
+        listDiv.classList.add("list-div");
         let listTitle = document.createElement("h1");
+        listTitle.classList.add("list-title");
         let listAuthor = document.createElement("p");
+        listAuthor.classList.add("list-author");
         let listDescription = document.createElement("p");
+        listDescription.classList.add("list-description");
         listTitle.innerHTML = result.book_details[0].title;
-        listAuthor.innerHTML = result.book_details[0].author;
+        listAuthor.innerHTML = `by ${result.book_details[0].author}`;
         listDescription.innerHTML = result.book_details[0].description;
         listDiv.appendChild(listTitle);
         listDiv.appendChild(listAuthor);
@@ -66,7 +91,13 @@ function createCanvas() {
 let hardcoverFictionButton = document.getElementById("hardcover-fiction-button")
 hardcoverFictionButton.addEventListener('click', async e => {
     listName = "list=hardcover-fiction";
-    listUrl = `${apiURL}&${listName}`
+    // if (dateOutput !== undefined) {
+        // listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    // } else {
+        listUrl = `${apiURL}&${listName}`;
+    // }
+    
+    
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
@@ -82,6 +113,7 @@ hardcoverFictionButton.addEventListener('click', async e => {
         
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -104,6 +136,7 @@ paperbackFictionButton.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -126,6 +159,7 @@ hardcoverNonfictionButton.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -148,6 +182,7 @@ paperbackNonfictionButton.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -170,6 +205,7 @@ adviceButton.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -192,6 +228,7 @@ midGradeHardcoverButton.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -214,6 +251,7 @@ pictureBookButton.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -236,6 +274,7 @@ childrenSeries.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
@@ -258,6 +297,7 @@ youngAdultHardcover.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray);
 
         let ListHeader = document.createElement("h1");
+        ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
         mainContainer.appendChild(ListHeader);
         createList();
