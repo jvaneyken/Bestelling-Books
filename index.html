@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="./assets/icons8-open-book-30.png" />
     <title>Document</title>
   </head>
   <body>
@@ -17,15 +22,23 @@
           id="search-input"
         /> -->
         <input type="date" id="date-input" />
-        <button type="submit" id="search-button">Submit</button>
+        <!-- <button type="submit" id="search-button">Submit</button> -->
       </div>
+      <h1 id="site-title">Bestselling Books</h1>
       <div id="external-buttons">
-        <a href="https://github.com/jvaneyken">GitHub</a>
+        <a href="https://github.com/jvaneyken"
+          ><i class="fab fa-github fa-lg"></i
+        ></a>
+
         <a href="https://www.linkedin.com/in/josh-van-eyken-0a427888/"
-          >LinkedIn</a
-        >
+          ><i class="fab fa-linkedin fa-lg"></i
+        ></a>
       </div>
     </div>
+
+    <p id="page-description">
+      Search for New York Times bestseller lists by genre and week
+    </p>
 
     <div id="chart-button-container">
       <button id="list-button">List</button>
@@ -33,6 +46,7 @@
     </div>
 
     <div id="main-and-side-container">
+      <h1 id="sidebar-title">Genres</h1>
       <ul id="side-bar">
         <li>
           <button id="hardcover-fiction-button"><span>HF</span></button>
@@ -77,5 +91,9 @@
     <div id="canvas-container">
       <!-- <canvas id="book-chart"></canvas> -->
     </div>
+
+    <footer>
+      <p>&copy; Josh van Eyken - josh.vaneyken@gmail.com</p>
+    </footer>
   </body>
 </html>

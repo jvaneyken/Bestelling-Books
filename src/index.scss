@@ -5,14 +5,22 @@
     font-family: sans-serif;
 }
 
+
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 75px;
-    background-color: rgb(211, 211, 211);
+    // background-color: rgb(211, 211, 211);
+    background-color: black;
     margin-bottom: 50px;
-    box-shadow: 0px 1px 1px grey;
+    box-shadow: 0px 1px 1px white;
+}
+
+#site-title {
+    font-size: 40px;
+    font-family: Helvetica, sans-serif;
+    color: white;
 }
 
 #search-div {
@@ -40,7 +48,7 @@
 #search-button {
     border-radius: 3px;
     padding: 5px;
-    box-shadow: 0px 2px 2px grey;
+    box-shadow: 0px 2px 2px white;
 }
 
 #external-buttons {
@@ -60,6 +68,11 @@
 
 #external-buttons > a:hover {
     color: black;
+}
+
+#page-description {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 #chart-button-container {
@@ -111,6 +124,10 @@
 // #main-and-side-containter {
 //     display: flex;
 // }
+
+#sidebar-title {
+    margin-left: 60px;
+}
 
 #side-bar {
     display: inline-block;
@@ -236,6 +253,18 @@ main {
     left: 180px;
     width: 1500px;
     height: 700px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: black;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
 }
 
 .hidden {
