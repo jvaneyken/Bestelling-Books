@@ -109,7 +109,8 @@ hardcoverFictionButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#ffff00";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
         
 
         let ListHeader = document.createElement("h1");
@@ -139,7 +140,8 @@ paperbackFictionButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#ffa500";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -168,7 +170,8 @@ hardcoverNonfictionButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#e06f1f";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -197,7 +200,8 @@ paperbackNonfictionButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#ff0000";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -226,7 +230,8 @@ adviceButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#ff1a40";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -255,7 +260,8 @@ midGradeHardcoverButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#ff00ff"
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -284,7 +290,8 @@ pictureBookButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#8a2be2";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -313,7 +320,8 @@ childrenSeries.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#0000ff";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -342,7 +350,8 @@ youngAdultHardcover.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        bookFunction(canvas, booksArray, weeksArray);
+        const backgroundColor = "#00ff00";
+        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");

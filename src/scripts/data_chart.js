@@ -34,7 +34,7 @@ import Chart from 'chart.js/auto'
 // const weeks = [5, 4, 1, 9, 70, 8, 2, 4, 5, 2, 15, 7, 10, 4, 15];
 
 
-function bookFunction(ctx, labels, data) {
+function bookFunction(ctx, labels, data, backgroundColor) {
     const bookChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -42,6 +42,7 @@ function bookFunction(ctx, labels, data) {
             datasets: [{
                 label: 'Weeks on Bestseller List',
                 data: data,
+                backgroundColor: backgroundColor,
                 // backgroundColor: [
                 //     "rgba(255, 99, 132, 0.2)",
                 //     "rgba(54, 162, 235, 0.2)",
