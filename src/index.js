@@ -58,6 +58,10 @@ function createList() {
     list.forEach(result => {
         let listDiv = document.createElement("div");
         listDiv.classList.add("list-div");
+        let listLink = document.createElement("a");
+        listLink.classList.add("list-link");
+        listLink.href = result.amazon_product_url;
+        listLink.target = "_blank";
         let listTitle = document.createElement("h1");
         listTitle.classList.add("list-title");
         let listAuthor = document.createElement("p");
@@ -67,7 +71,8 @@ function createList() {
         listTitle.innerHTML = result.book_details[0].title;
         listAuthor.innerHTML = `by ${result.book_details[0].author}`;
         listDescription.innerHTML = result.book_details[0].description;
-        listDiv.appendChild(listTitle);
+        listLink.appendChild(listTitle);
+        listDiv.appendChild(listLink);
         listDiv.appendChild(listAuthor);
         listDiv.appendChild(listDescription);
         mainContainer.appendChild(listDiv);
