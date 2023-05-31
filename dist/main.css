@@ -268,12 +268,17 @@ main {
   margin-left: 50px;
   margin-bottom: 10px;
   display: inline-block;
-  min-width: 1040px;
+  min-width: 90%;
   padding: 10px;
+}
+
+.list-link {
+  text-decoration: none;
 }
 
 .list-title {
   font-size: 18px;
+  color: #2e2e2e;
 }
 
 .list-author {
