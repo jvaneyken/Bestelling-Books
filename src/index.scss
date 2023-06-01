@@ -17,8 +17,8 @@ body {
     align-items: center;
     height: 75px;
     // background-color: rgb(211, 211, 211);
-    background-color: #2e2e2e;
-    margin-bottom: 50px;
+    background-color: black;
+    margin-bottom: 20px;
     box-shadow: 0px 1px 1px white;
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 #external-buttons > a:hover {
-    color: #2e2e2e;
+    color: black;
 }
 
 #page-description {
@@ -85,7 +85,7 @@ body {
 #chart-button-container {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #2e2e2e;
+    border-bottom: 1px solid black;
     position: static;
     height: 20px;
     width: 80%;
@@ -99,14 +99,14 @@ body {
     width: 100px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    border: 1px solid #2e2e2e;
+    border: 1px solid black;
     border-bottom: none;
     background-color: #f9f7f1;
     box-shadow: 0px 0px 2px grey inset;
 }
 
 #chart-button:hover {
-    background-color: #2e2e2e;
+    background-color: black;
     color: #f9f7f1;
 }
 
@@ -117,20 +117,29 @@ body {
     width: 100px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    border: 1px solid #2e2e2e;
+    border: 1px solid black;
     border-bottom: none;
     background-color: #f9f7f1;
 }
 
 #list-button:hover {
-    background-color: #2e2e2e;
+    background-color: black;
     color: #f9f7f1;
 }
 
 
 #main-and-side-container {
     display: flex;
+    justify-content: center;
+    width: 95%;
 }
+
+// #side-bar-container {
+//     // border: 1px solid black;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: start;
+// }
 
 #sidebar-title {
     margin-left: 60px;
@@ -141,21 +150,74 @@ body {
     height: 800px;
     width: 150px;
     margin-top: 20px;
-    margin-left: 50px;
+    // margin-left: 30px;
+    margin-right: 20px;
 }
 
 #side-bar button {
-    width: 75px;
+    display: inline-block;
+    min-width: 75px;
+    transition: max-width 1s;
     // height: 75px;
-    border-radius: 3px;
+    border-radius: 20px;
     box-shadow: 0px 2px 2px grey;
-    padding: 10px;
+    padding: 15px;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    font-weight: 900;
+    font-size: 1rem;
+    // color: black;
+    text-shadow: 2px 1px 1px rgb(0, 0, 0) inset;
+    // -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgba(139, 139, 139, 0.803);
 }
 
 #side-bar button:hover span {
     display: none;
+}
+
+#hardcover-fiction-button {
+    // background-color: #ffff00;
+    background-color: rgba(0, 0, 0);
+    color: #ebeb00;
+}
+
+#paperback-fiction-button {
+    background-color: #ffa500;
+    color: #986300;
+}
+
+#hardcover-nonfiction-button {
+    background-color: #e06f1f;
+}
+
+#paperback-nonfiction-button {
+    background-color: #ff0000;
+}
+
+#advice-button {
+    background-color: #ff1a40;
+}
+
+#mid-grade-hardcover-button {
+    background-color: #ff00ff;
+}
+
+#picture-book-button {
+    background-color: #8a2be2;
+}
+
+#children-series-button {
+    background-color: #0000ff;
+}
+
+#ya-hardcover-button {
+    background-color: #00ff00;
+}
+
+#hardcover-fiction-button:hover:before {
+    content: "Hardcover Fiction";
 }
 
 #paperback-fiction-button:hover:before {
@@ -190,27 +252,29 @@ body {
     content: "Young Adult Hardcover";
 }
 
-#hardcover-fiction-button:hover:before {
-    content: "Hardcover Fiction";
-}
 
 #side-bar button:hover {
     position: relative;
+    // display: inline-block;
     // bottom: 3px;
     right: 5px;
-    width: 150px;
-    background-color: #2e2e2e;
+    // min-width: 100px;
+    max-width: 300px;
+    white-space: nowrap;
+    background-color: black;
     color: #f9f7f1;
     box-shadow: -2px 5px 2px grey;
+    z-index: 2;
 }
 
 main {
-    border: 1px solid #2e2e2e;
+    align-self: flex-start;
+    border: 1px solid black;
     border-radius: 3px;
     box-shadow: 0px 10px 5px grey;
     margin-top: 20px;
     vertical-align: top;
-    width: 1380px;
+    width: 70%;
     height: 660px;
     display: inline-block;
     overflow: scroll;
@@ -226,8 +290,8 @@ main {
 .list-div {
     display: flex;
     // flex-direction: column;
-    align-items: center;
-    border: 1px solid #2e2e2e;
+    align-items: start;
+    border: 1px solid black;
     border-radius: 3px;
     margin-left: 50px;
     margin-bottom: 10px;
@@ -240,6 +304,11 @@ main {
     margin-left: 10px;
 }
 
+.list-image {
+    width: 100px;
+    border-radius: 5px;
+}
+
 .content-div {
     padding-left: 10px;
 }
@@ -249,8 +318,12 @@ main {
 }
 
 .list-title {
-    font-size: 18px;
-    color: #2e2e2e;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 .list-author {
@@ -270,7 +343,7 @@ main {
     // display: none;
     position: absolute;
     top: 22%;
-    left: 12%;
+    left: 15%;
     width: 80%;
     height: 70%;
 }
@@ -280,7 +353,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100vw;
-    background-color: #2e2e2e;
+    background-color: black;
     padding: 15px;
     text-align: center;
     font-size: 14px;
