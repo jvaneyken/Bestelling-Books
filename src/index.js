@@ -1,26 +1,16 @@
-
-
 import bookFunction from "./scripts/data_chart";
-// console.log(bookChart);
-// import Chart from 'chart.js/auto'
 
+const nyt_api_key=process.env.NYT_API_KEY;
+const google_api_key=process.env.GOOGLE_API_KEY;
 
-const apiURL = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=73W0ByfNVTxMkbhcn7rMWYUVQGPDej9z";
-
-// const dateURL = "https://api.nytimes.com/svc/books/v3/lists/2023-03-19/hardcover-fiction.json?api-key=73W0ByfNVTxMkbhcn7rMWYUVQGPDej9z";
-
-// async function notARealFunction() {
-//     let dateResponse = await fetch(dateURL);
-//     if (dateResponse.ok) {
-//         console.log(dateResponse);
-//     }
-// }
-
-// notARealFunction();
+const apiURL = `https://api.nytimes.com/svc/books/v3/lists.json?api-key=${nyt_api_key}`;
 
 let list = [];
 let booksArray = [];
 let weeksArray = [];
+
+
+let imagesArray = [];
 
 let listName = "";
 
@@ -54,10 +44,24 @@ async function fetchData() {
         }
 }
 
-function createList() {
-    list.forEach(result => {
+async function fetchGoogleData(bookTitle, isbn13) {
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookTitle}+isbn:${isbn13}&key=${google_api_key}`);
+    if (response.ok) {
+        const body = await response.json();
+        const imageLink = body.items[0].volumeInfo.imageLinks.smallThumbnail;
+        return imageLink;
+    } else {
+        console.log("something went wrong");
+    }
+}
+
+async function createList() {
+    for (const result of list) {
         let listDiv = document.createElement("div");
         listDiv.classList.add("list-div");
+        let listImage = document.createElement("img");
+        let imageSrc = await fetchGoogleData(result.book_details[0].title, result.isbns[0].isbn13)
+        listImage.setAttribute("src", imageSrc);
         let listLink = document.createElement("a");
         listLink.classList.add("list-link");
         listLink.href = result.amazon_product_url;
@@ -71,12 +75,19 @@ function createList() {
         listTitle.innerHTML = result.book_details[0].title;
         listAuthor.innerHTML = `by ${result.book_details[0].author}`;
         listDescription.innerHTML = result.book_details[0].description;
+        let imageDiv = document.createElement("div");
+        imageDiv.classList.add("image-div");
+        let contentDiv = document.createElement("div");
+        contentDiv.classList.add("content-div");
+        imageDiv.appendChild(listImage);
         listLink.appendChild(listTitle);
-        listDiv.appendChild(listLink);
-        listDiv.appendChild(listAuthor);
-        listDiv.appendChild(listDescription);
+        contentDiv.appendChild(listLink);
+        contentDiv.appendChild(listAuthor);
+        contentDiv.appendChild(listDescription);
+        listDiv.appendChild(imageDiv);
+        listDiv.appendChild(contentDiv);
         mainContainer.appendChild(listDiv);
-    })
+    }
 }
 
 function createCanvas() {
@@ -108,7 +119,12 @@ hardcoverFictionButton.addEventListener('click', async e => {
     }
         e.preventDefault();
         await fetchData();
+        console.log(list, "list");
+        // await fetchGoogleData();
 
+
+        // imagesArray = list.map(book => fetchGoogleData(book.book_details[0].title, book.isbns[0].isbn13))
+        console.log(imagesArray, "images Array")
         let canvas = createCanvas();
         // createCanvas();
 
@@ -116,6 +132,8 @@ hardcoverFictionButton.addEventListener('click', async e => {
         weeksArray = list.map(week => week.weeks_on_list);
         const backgroundColor = "#ffff00";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+
+        
         
 
         let ListHeader = document.createElement("h1");
