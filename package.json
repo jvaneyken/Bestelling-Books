@@ -35,5 +35,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "devDependencies": {
+    "dotenv": "^16.1.2"
+  }
 }

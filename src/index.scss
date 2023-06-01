@@ -1,5 +1,9 @@
  @import './styles/reset.scss';
 
+//  body * {
+//     border: 1px solid blue;
+//  }
+
 body {
     font-weight: bold;
     font-family: sans-serif;
@@ -124,8 +128,8 @@ body {
 }
 
 
-#main-and-side-containter {
-    background-color: black;
+#main-and-side-container {
+    display: flex;
 }
 
 #sidebar-title {
@@ -220,16 +224,24 @@ main {
 }
 
 .list-div {
-    // display: flex;
+    display: flex;
     // flex-direction: column;
-    // align-items: center;
+    align-items: center;
     border: 1px solid #2e2e2e;
     border-radius: 3px;
     margin-left: 50px;
     margin-bottom: 10px;
-    display: inline-block;
-    min-width: 90%;
+    // display: inline-block;
+    width: 90%;
     padding: 10px;
+}
+
+.image-div {
+    margin-left: 10px;
+}
+
+.content-div {
+    padding-left: 10px;
 }
 
 .list-link {
@@ -257,10 +269,10 @@ main {
 #canvas-container {
     // display: none;
     position: absolute;
-    top: 170px;
-    left: 180px;
-    width: 1500px;
-    height: 700px;
+    top: 22%;
+    left: 12%;
+    width: 80%;
+    height: 70%;
 }
 
 footer {
