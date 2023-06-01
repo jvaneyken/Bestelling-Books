@@ -60,6 +60,7 @@ async function createList() {
         let listDiv = document.createElement("div");
         listDiv.classList.add("list-div");
         let listImage = document.createElement("img");
+        listImage.classList.add("list-image");
         let imageSrc = await fetchGoogleData(result.book_details[0].title, result.isbns[0].isbn13)
         listImage.setAttribute("src", imageSrc);
         let listLink = document.createElement("a");
