@@ -18,15 +18,6 @@
   </head>
   <body>
     <div class="nav-container">
-      <div id="search-div">
-        <!-- <input
-          type="text"
-          placeholder="Search books by year"
-          id="search-input"
-        /> -->
-        <input type="date" id="date-input" />
-        <!-- <button type="submit" id="search-button">Submit</button> -->
-      </div>
       <h1 id="site-title">Bestselling Books</h1>
       <div id="external-buttons">
         <a href="https://github.com/jvaneyken"
@@ -43,9 +34,19 @@
       Search for New York Times bestseller lists by genre and week
     </p>
 
+    <div id="search-container">
+      <div id="search-text">
+        Select a date to search by week or leave unselected to view most recent list.
+      </div>
+      <div id="search-div">
+        <input type="date" id="date-input" />
+        <!-- <button type="submit" id="search-button">Submit</button> -->
+      </div>
+    </div>
+
     <div id="chart-button-container">
-      <button id="list-button">List</button>
-      <button id="chart-button">Chart</button>
+      <button id="list-button" class="chart-list-buttons">List</button>
+      <button id="chart-button" class="chart-list-buttons">Chart</button>
     </div>
 
     <div id="main-and-side-container">
@@ -91,11 +92,11 @@
           </ul>
       </div>
       <main></main>
+      <div id="canvas-container">
+        <!-- <canvas id="book-chart"></canvas> -->
+      </div>
     </div>
 
-    <div id="canvas-container">
-      <!-- <canvas id="book-chart"></canvas> -->
-    </div>
 
 
     <footer>
