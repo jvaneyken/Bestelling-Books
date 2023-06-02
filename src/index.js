@@ -120,7 +120,7 @@ hardcoverFictionButton.addEventListener('click', async e => {
     }
         e.preventDefault();
         await fetchData();
-        console.log(list, "list");
+        // console.log(list, "list");
         // await fetchGoogleData();
 
 
@@ -135,8 +135,18 @@ hardcoverFictionButton.addEventListener('click', async e => {
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         
-        
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
 
+        mainContainer.appendChild(date);
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
@@ -254,7 +264,7 @@ adviceButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#ff1a40";
+        const backgroundColor = "#e4516a";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
@@ -344,7 +354,7 @@ childrenSeries.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#0000ff";
+        const backgroundColor = "#0088ff";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
         let ListHeader = document.createElement("h1");
@@ -388,6 +398,8 @@ youngAdultHardcover.addEventListener('click', async e => {
 let chartButton = document.getElementById("chart-button");
 chartButton.addEventListener('click', e => {
     e.preventDefault();
+    listButton.classList.remove("clicked");
+    chartButton.classList.add("clicked");
     canvasContainer.classList.remove("hidden");
     mainContainer.classList.add("hidden");
 })
@@ -395,6 +407,8 @@ chartButton.addEventListener('click', e => {
 let listButton = document.getElementById("list-button");
 listButton.addEventListener('click', e => {
     e.preventDefault();
+    chartButton.classList.remove("clicked");
+    listButton.classList.add("clicked");
     mainContainer.classList.remove("hidden");
     canvasContainer.classList.add("hidden");
 })
