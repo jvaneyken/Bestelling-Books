@@ -137,6 +137,7 @@ hardcoverFictionButton.addEventListener('click', async e => {
         
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
+        date.classList.add("week-of-div");
         if (dateContent.value) {
             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
                 month: 'long',
