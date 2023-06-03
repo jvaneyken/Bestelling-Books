@@ -11,7 +11,6 @@
 body {
     font-weight: bold;
     font-family: sans-serif;
-    // background-color: white;
 }
 
 
@@ -20,7 +19,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 75px;
-    // background-color: rgb(211, 211, 211);
     background-color: black;
     margin-bottom: 20px;
     box-shadow: 0px 1px 1px white;
@@ -53,19 +51,10 @@ body {
 
 #search-container {
     display: flex;
-    // flex-direction: column;
-    // border: 1px solid red;
-    // align-items: center;
     margin-bottom: 10px;
-    // margin-left: 100px;
-    // align-items: center;
     justify-content: center;
     font-weight: 100;
 }
-
-// #search-div {
-//     margin-left: 50px;
-// }
 
 #search-text {
     border: 1px solid black;
@@ -74,7 +63,6 @@ body {
     padding: 10px;
     font-size: 1rem;
     margin-bottom: 10px;
-    // width: 500px;
 }
 
 #date-input {
@@ -91,12 +79,6 @@ body {
     text-decoration: underline;
 }
 
-// #search-button {
-//     border-radius: 3px;
-//     padding: 5px;
-//     box-shadow: 0px 2px 2px white;
-// }
-
 
 #page-description {
     text-align: center;
@@ -108,7 +90,6 @@ body {
     display: flex;
     justify-content: center;
     border-bottom: 1px solid black;
-    // position: static;
     height: 20px;
     width: 80%;
     margin: auto;
@@ -124,13 +105,7 @@ body {
     border-top-right-radius: 3px;
     border: 1px solid black;
     border-bottom: none;
-    // background-color: white;
 }
-
-// #chart-button:hover {
-//     background-color: black;
-//     color: white;
-// }
 
 #list-button {
     position: relative;
@@ -142,13 +117,7 @@ body {
     border-top-right-radius: 3px;
     border: 1px solid black;
     border-bottom: none;
-    // background-color: white;
 }
-
-// #list-button:hover {
-//     background-color: black;
-//     color: white;
-// }
 
 .chart-list-buttons {
     background-color: white;
@@ -162,10 +131,10 @@ body {
 .clicked {
     color: white;
     background-color: grey;
-    // box-shadow: 0px 0px 2px grey inset;
 }
 
 #main-and-side-container {
+    position: relative;
     display: flex;
     justify-content: center;
     width: 95%;
@@ -173,10 +142,6 @@ body {
 }
 
 #side-bar-container {
-    // border: 1px solid black;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: start;
     height: 30%;
 }
 
@@ -191,7 +156,6 @@ body {
     height: 100%;
     width: 150px;
     margin-top: 20px;
-    // margin-left: 30px;
     margin-right: 20px;
 }
 
@@ -199,7 +163,6 @@ body {
     display: inline-block;
     min-width: 75px;
     transition: max-width 1s;
-    // height: 75px;
     border-radius: 20px;
     box-shadow: 0px 2px 2px grey;
     padding: 15px;
@@ -207,11 +170,6 @@ body {
     margin-bottom: 5px;
     font-weight: 900;
     font-size: 1rem;
-    // color: black;
-    // text-shadow: 2px 1px 1px rgb(0, 0, 0) inset;
-    // -webkit-text-fill-color: white;
-    // -webkit-text-stroke-width: 0.5px;
-    // -webkit-text-stroke-color: rgba(139, 139, 139, 0.803);
 }
 
 #side-bar button:hover span {
@@ -294,14 +252,9 @@ body {
 
 #side-bar button:hover {
     position: relative;
-    // display: inline-block;
-    // bottom: 3px;
     right: 5px;
-    // min-width: 100px;
     max-width: 300px;
     white-space: nowrap;
-    // background-color: black;
-    // color: white;
     box-shadow: -2px 5px 2px grey;
     z-index: 2;
 }
@@ -309,13 +262,13 @@ body {
 main {
     align-self: flex-start;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: 0px 10px 5px grey;
     margin-top: 20px;
     margin-right: 80px;
     vertical-align: top;
     width: 70%;
-    height: 600px;
+    height: 55vh;
     display: inline-block;
     overflow: scroll;
 }
@@ -330,13 +283,11 @@ main {
 
 .list-div {
     display: flex;
-    // flex-direction: column;
     align-items: start;
     border: 1px solid black;
-    border-radius: 3px;
+    border-radius: 5px;
     margin-left: 50px;
     margin-bottom: 10px;
-    // display: inline-block;
     width: 90%;
     padding: 10px;
 }
@@ -381,12 +332,11 @@ main {
 
 
 #canvas-container {
-    // display: none;
     position: absolute;
-    top: 30%;
+    top: 1%;
     left: 15%;
-    width: 80%;
-    height: 70%;
+    width: 85%;
+    height: 80%;
 }
 
 footer {
@@ -406,32 +356,87 @@ footer {
 }
 
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 830px) {
+    #side-bar button {
+        display: inline-block;
+        min-width: 75px;
+        transition: max-width 1s;
+        border-radius: 20px;
+        box-shadow: 0px 2px 2px grey;
+        padding: 14px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-weight: 900;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-height: 800px) {
     #canvas-container {
         position: absolute;
-        top: 35%;
+        top: 1%;
         left: 15%;
         width: 80%;
         height: 70%;
+    }
+
+    #side-bar button {
+        display: inline-block;
+        min-width: 70px;
+        transition: max-width 1s;
+        border-radius: 20px;
+        box-shadow: 0px 2px 2px grey;
+        padding: 12px;
+        margin-bottom: 5px;
+        font-weight: 900;
+        font-size: .7rem;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    #canvas-container {
+        position: absolute;
+        top: 1%;
+        left: 15%;
+        width: 80%;
+        height: 65%;
+    }
+
+    #side-bar button {
+        display: inline-block;
+        min-width: 70px;
+        transition: max-width 1s;
+        border-radius: 20px;
+        box-shadow: 0px 2px 2px grey;
+        padding: 11px;
+        margin-bottom: 3px;
+        font-weight: 900;
+        font-size: .7rem;
     }
 }
 
 @media screen and (max-height: 600px) {
     #canvas-container {
         position: absolute;
-        top: 40%;
+        top: 1%;
         left: 15%;
         width: 80%;
-        height: 70%;
+        height: 45%;
     }
 }
 
 @media screen and (max-height: 530px) {
     #canvas-container {
         position: absolute;
-        top: 45%;
+        top: 1%;
         left: 15%;
         width: 80%;
-        height: 70%;
+        height: 45%;
+    }
+}
+
+@media screen and (min-height: 700px) {
+    main {
+        height: 60vh;
     }
 }

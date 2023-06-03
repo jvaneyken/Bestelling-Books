@@ -184,6 +184,7 @@ body {
 }
 
 #main-and-side-container {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 95%;
@@ -309,13 +310,13 @@ body {
 main {
   align-self: flex-start;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: 0px 10px 5px grey;
   margin-top: 20px;
   margin-right: 80px;
   vertical-align: top;
   width: 70%;
-  height: 600px;
+  height: 55vh;
   display: inline-block;
   overflow: scroll;
 }
@@ -331,7 +332,7 @@ main {
   display: flex;
   align-items: start;
   border: 1px solid black;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-left: 50px;
   margin-bottom: 10px;
   width: 90%;
@@ -378,10 +379,10 @@ main {
 
 #canvas-container {
   position: absolute;
-  top: 30%;
+  top: 1%;
   left: 15%;
-  width: 80%;
-  height: 70%;
+  width: 85%;
+  height: 80%;
 }
 
 footer {
@@ -400,30 +401,80 @@ footer {
   visibility: hidden;
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 830px) {
+  #side-bar button {
+    display: inline-block;
+    min-width: 75px;
+    transition: max-width 1s;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px grey;
+    padding: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-height: 800px) {
   #canvas-container {
     position: absolute;
-    top: 35%;
+    top: 1%;
     left: 15%;
     width: 80%;
     height: 70%;
+  }
+  #side-bar button {
+    display: inline-block;
+    min-width: 70px;
+    transition: max-width 1s;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px grey;
+    padding: 12px;
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-height: 700px) {
+  #canvas-container {
+    position: absolute;
+    top: 1%;
+    left: 15%;
+    width: 80%;
+    height: 65%;
+  }
+  #side-bar button {
+    display: inline-block;
+    min-width: 70px;
+    transition: max-width 1s;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px grey;
+    padding: 11px;
+    margin-bottom: 3px;
+    font-weight: 900;
+    font-size: 0.7rem;
   }
 }
 @media screen and (max-height: 600px) {
   #canvas-container {
     position: absolute;
-    top: 40%;
+    top: 1%;
     left: 15%;
     width: 80%;
-    height: 70%;
+    height: 45%;
   }
 }
 @media screen and (max-height: 530px) {
   #canvas-container {
     position: absolute;
-    top: 45%;
+    top: 1%;
     left: 15%;
     width: 80%;
-    height: 70%;
+    height: 45%;
+  }
+}
+@media screen and (min-height: 700px) {
+  main {
+    height: 60vh;
   }
 }

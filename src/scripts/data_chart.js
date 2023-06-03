@@ -55,6 +55,9 @@ function bookFunction(ctx, labels, data, backgroundColor) {
                     ],
                     borderWidth: 1
             }]
+        },
+        options: {
+            maintainAspectRatio: false
         }
     })
 }
