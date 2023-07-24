@@ -14,7 +14,7 @@ let imagesArray = [];
 
 let listName = "";
 
-let dateOutput;
+let dateOutput = null;
 
 let listButton = document.getElementById("list-button");
 listButton.classList.add("clicked");
@@ -159,33 +159,33 @@ hardcoverFictionButton.addEventListener('click', async e => {
     } else {
         listUrl = `${apiURL}&${listName}`;
     }
-    
-    
+
+
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
     }
-        e.preventDefault();
-        await fetchData();
-        let canvas = createCanvas();
+    e.preventDefault();
+    await fetchData();
+    let canvas = createCanvas();
 
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#ffff00";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+    booksArray = list.map(book => book.book_details[0].title);
+    weeksArray = list.map(week => week.weeks_on_list);
+    const backgroundColor = "#ffff00";
+    bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
-        
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
+
+    const dateContent = document.getElementById("date-input");
+    const date = document.createElement("div");
+    date.classList.add("week-of-div");
+    if (dateContent.value) {
+        date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
                 timeZone: 'UTC'
             })}`;
         }
-
+        
         mainContainer.appendChild(date);
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -193,36 +193,50 @@ hardcoverFictionButton.addEventListener('click', async e => {
         mainContainer.appendChild(ListHeader);
         createList();
 })
-
-let paperbackFictionButton = document.getElementById("paperback-fiction-button")
-paperbackFictionButton.addEventListener('click', async e => {
-    listName = "list=trade-fiction-paperback";
-
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
-
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
-
-        let canvas = createCanvas();
-
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#ffa500";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
-
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
+    
+    let paperbackFictionButton = document.getElementById("paperback-fiction-button")
+    paperbackFictionButton.addEventListener('click', async e => {
+        listName = "list=trade-fiction-paperback";
+    
+        if (dateOutput) {
+            listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+        } else {
+            listUrl = `${apiURL}&${listName}`;
+        }
+    
+        while (mainContainer.firstChild) {
+            mainContainer.removeChild(mainContainer.firstChild);
+        }
+            e.preventDefault();
+            await fetchData();
+    
+            let canvas = createCanvas();
+    
+            booksArray = list.map(book => book.book_details[0].title);
+            weeksArray = list.map(week => week.weeks_on_list);
+            const backgroundColor = "#ffa500";
+            bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+    
+            const dateContent = document.getElementById("date-input");
+            const date = document.createElement("div");
+            date.classList.add("week-of-div");
+            if (dateContent.value) {
+                date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric',
+                    timeZone: 'UTC'
+                })}`;
+            }
+    
+            mainContainer.appendChild(date);
+    
+            let ListHeader = document.createElement("h1");
+            ListHeader.classList.add("list-header");
+            ListHeader.innerHTML = list[0].display_name;
+            mainContainer.appendChild(ListHeader);
+            createList();
+    })
 
 let hardcoverNonfictionButton = document.getElementById("hardcover-nonfiction-button")
 hardcoverNonfictionButton.addEventListener('click', async e => {
@@ -246,6 +260,20 @@ hardcoverNonfictionButton.addEventListener('click', async e => {
         weeksArray = list.map(week => week.weeks_on_list);
         const backgroundColor = "#e06f1f";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        date.classList.add("week-of-div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
+
+        mainContainer.appendChild(date);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -277,6 +305,20 @@ paperbackNonfictionButton.addEventListener('click', async e => {
         const backgroundColor = "#ff0000";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        date.classList.add("week-of-div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
+
+        mainContainer.appendChild(date);
+
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
@@ -306,6 +348,20 @@ adviceButton.addEventListener('click', async e => {
         weeksArray = list.map(week => week.weeks_on_list);
         const backgroundColor = "#e4516a";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        date.classList.add("week-of-div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
+
+        mainContainer.appendChild(date);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -337,6 +393,20 @@ midGradeHardcoverButton.addEventListener('click', async e => {
         const backgroundColor = "#ff00ff"
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        date.classList.add("week-of-div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
+
+        mainContainer.appendChild(date);
+
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
@@ -366,6 +436,20 @@ pictureBookButton.addEventListener('click', async e => {
         weeksArray = list.map(week => week.weeks_on_list);
         const backgroundColor = "#8a2be2";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        date.classList.add("week-of-div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
+
+        mainContainer.appendChild(date);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
@@ -397,6 +481,20 @@ childrenSeries.addEventListener('click', async e => {
         const backgroundColor = "#0088ff";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
 
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        date.classList.add("week-of-div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
+
+        mainContainer.appendChild(date);
+
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
         ListHeader.innerHTML = list[0].display_name;
@@ -426,6 +524,20 @@ youngAdultHardcover.addEventListener('click', async e => {
         weeksArray = list.map(week => week.weeks_on_list);
         const backgroundColor = "#00ff00";
         bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+
+        const dateContent = document.getElementById("date-input");
+        const date = document.createElement("div");
+        date.classList.add("week-of-div");
+        if (dateContent.value) {
+            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                timeZone: 'UTC'
+            })}`;
+        }
+
+        mainContainer.appendChild(date);
 
         let ListHeader = document.createElement("h1");
         ListHeader.classList.add("list-header");
