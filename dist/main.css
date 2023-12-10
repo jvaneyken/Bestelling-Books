@@ -60,6 +60,7 @@ button {
 }
 
 body {
+  background-color: #efefff;
   font-weight: bold;
   font-family: sans-serif;
 }
@@ -114,6 +115,7 @@ body {
   padding: 10px;
   font-size: 1rem;
   margin-bottom: 10px;
+  background-color: white;
 }
 
 #date-input {
@@ -306,9 +308,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 
 main {
   align-self: flex-start;
-  border: 1px solid black;
   border-radius: 5px;
-  box-shadow: 0px 10px 5px grey;
   margin-top: 20px;
   margin-right: 80px;
   vertical-align: top;
@@ -316,6 +316,7 @@ main {
   height: 55vh;
   display: inline-block;
   overflow: scroll;
+  background-color: white;
 }
 
 .list-header {
@@ -328,8 +329,8 @@ main {
 .list-div {
   display: flex;
   align-items: start;
-  border: 1px solid black;
   border-radius: 5px;
+  box-shadow: 0px 5px 5px lightgrey;
   margin-left: 50px;
   margin-bottom: 10px;
   width: 90%;
