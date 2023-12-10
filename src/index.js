@@ -43,9 +43,6 @@ async function fetchData() {
         let body = await response.json();
         list = body.results;
     }
-    else {
-        console.log("something went wrong")
-        }
 }
 
 async function fetchGoogleData(bookTitle, isbn13) {
@@ -54,8 +51,6 @@ async function fetchGoogleData(bookTitle, isbn13) {
         const body = await response.json();
         const imageLink = body.items[0].volumeInfo.imageLinks.smallThumbnail;
         return imageLink;
-    } else {
-        console.log("something went wrong");
     }
 }
 
