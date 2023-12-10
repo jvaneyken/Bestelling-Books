@@ -164,6 +164,7 @@ body {
 .chart-list-buttons:hover {
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .clicked {
@@ -208,6 +209,10 @@ body {
   margin-bottom: 5px;
   font-weight: 900;
   font-size: 1rem;
+}
+
+#side-bar button:hover {
+  cursor: pointer;
 }
 
 #side-bar button:hover span {
