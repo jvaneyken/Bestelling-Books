@@ -125,6 +125,10 @@ body {
   text-align: center;
 }
 
+input[type=date]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 .week-of-div {
   transform: translate(10px, 20px);
   text-decoration: underline;
