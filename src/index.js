@@ -119,8 +119,8 @@ window.onload = function(e) {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#ffff00";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#ffff00";
+        bookFunction(canvas, booksArray, weeksArray);
 
         // const dateContent = document.getElementById("date-input");
         // const date = document.createElement("div");
@@ -165,8 +165,8 @@ hardcoverFictionButton.addEventListener('click', async e => {
 
     booksArray = list.map(book => book.book_details[0].title);
     weeksArray = list.map(week => week.weeks_on_list);
-    const backgroundColor = "#ffff00";
-    bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+    // const backgroundColor = "#ffff00";
+    bookFunction(canvas, booksArray, weeksArray);
 
 
     const dateContent = document.getElementById("date-input");
@@ -209,8 +209,8 @@ hardcoverFictionButton.addEventListener('click', async e => {
     
             booksArray = list.map(book => book.book_details[0].title);
             weeksArray = list.map(week => week.weeks_on_list);
-            const backgroundColor = "#ffa500";
-            bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+            // const backgroundColor = "#ffa500";
+            bookFunction(canvas, booksArray, weeksArray);
     
             const dateContent = document.getElementById("date-input");
             const date = document.createElement("div");
@@ -253,8 +253,8 @@ hardcoverNonfictionButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#e06f1f";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#e06f1f";
+        bookFunction(canvas, booksArray, weeksArray);
 
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
@@ -297,8 +297,8 @@ paperbackNonfictionButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#ff0000";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#ff0000";
+        bookFunction(canvas, booksArray, weeksArray);
 
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
@@ -341,8 +341,8 @@ adviceButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#e4516a";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#e4516a";
+        bookFunction(canvas, booksArray, weeksArray);
 
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
@@ -385,8 +385,8 @@ midGradeHardcoverButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#ff00ff"
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#ff00ff"
+        bookFunction(canvas, booksArray, weeksArray);
 
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
@@ -429,8 +429,8 @@ pictureBookButton.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#8a2be2";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#8a2be2";
+        bookFunction(canvas, booksArray, weeksArray);
 
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
@@ -473,8 +473,8 @@ childrenSeries.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#0088ff";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#0088ff";
+        bookFunction(canvas, booksArray, weeksArray);
 
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
@@ -517,8 +517,8 @@ youngAdultHardcover.addEventListener('click', async e => {
 
         booksArray = list.map(book => book.book_details[0].title);
         weeksArray = list.map(week => week.weeks_on_list);
-        const backgroundColor = "#00ff00";
-        bookFunction(canvas, booksArray, weeksArray, backgroundColor);
+        // const backgroundColor = "#00ff00";
+        bookFunction(canvas, booksArray, weeksArray);
 
         const dateContent = document.getElementById("date-input");
         const date = document.createElement("div");
