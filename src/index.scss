@@ -1,33 +1,35 @@
  @import './styles/reset.scss';
 
 // body * {
+//     background-color: #efefff;
 //     border: 1px solid blue;
 // }
 
 // main * {
+//     background-color: white;
 //     border: 1px solid red;
 // }
 
 body {
+    background-color: #efefff;
     font-weight: bold;
     font-family: sans-serif;
 }
-
 
 .nav-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 75px;
-    background-color: black;
+    background-color: #2E2E80;
     margin-bottom: 20px;
-    box-shadow: 0px 1px 1px white;
+    // box-shadow: 0px 1px 1px white;
 }
 
 #site-title {
     font-size: 40px;
     font-family: "Playfair Display", serif;
-    color: white;
+    color: #FFFCF0;
 }
 
 #external-buttons {
@@ -36,17 +38,18 @@ body {
     width: 5%;
     margin-left: 20px;
 }
+
 #external-buttons > a {
     text-decoration: none;
-    color: lightgrey;
+    color: #2E2E80;
     background-color: #efefef;
     border-radius: 3px;
     padding: 5px;
-    box-shadow: 0px 2px 2px grey;
+    // border: 1px solid #2E2E80;
 }
 
 #external-buttons > a:hover {
-    color: black;
+    filter: invert(1);
 }
 
 #search-container {
@@ -57,22 +60,44 @@ body {
 }
 
 #search-text {
-    border: 1px solid black;
+    border: 1px solid #2E2E80;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     padding: 10px;
     font-size: 1rem;
     margin-bottom: 10px;
+    background-color: #FFFCF0;
 }
 
 #date-input {
-    border: 1px solid black;
+    border: 1px solid #2E2E80;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     width: 150px;
     height: 36px;
     text-align: center;
 }
+
+input[type="date"] {
+    background-color: #FFFCF0;
+    font-size: 1rem;
+    font-weight: 100;
+    font-family: sans-serif;
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+input:focus {
+    outline-color: #9797F7;
+}
+
+// input[type="date"]::-webkit-datetime-edit-month-field { color: white; }
+// ::-webkit-datetime-edit-day-field { color: red; }
+// ::-webkit-datetime-edit-year-field { color: red; }
+// ::-webkit-calendar-picker-indicator { background:gray; }
 
 .week-of-div {
     // border: 1px solid blue;
@@ -86,6 +111,7 @@ body {
     text-align: center;
     margin-bottom: 10px;
     font-size: 1.5rem;
+    color: #2E2E80;
 }
 
 #chart-button-container {
@@ -109,19 +135,21 @@ body {
 }
 
 .chart-list-buttons {
-    background-color: white;
-    border: 1px solid black;
+    background-color: #FFFCF0;
+    border: 1px solid #2E2E80;
+    color: #2E2E80;
     width: 100px;
 }
 
 .chart-list-buttons:hover {
-    background-color: black;
-    color: white;
+    background-color: #2E2E80;
+    color: #fffcf0;
+    cursor: pointer;
 }
 
 .clicked {
-    color: white;
-    background-color: grey;
+    color: #2E2E80;
+    background-color: #D9C673;
 }
 
 #main-and-side-container {
@@ -140,6 +168,7 @@ body {
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: -20px;
+    color: #2E2E80;
 }
 
 #side-bar {
@@ -150,59 +179,64 @@ body {
     margin-right: 20px;
 }
 
-#side-bar button {
+.sidebar-buttons {
     display: inline-block;
     min-width: 75px;
     transition: max-width 1s;
     border-radius: 20px;
-    box-shadow: 0px 2px 2px grey;
     padding: 15px;
     margin-top: 10px;
     margin-bottom: 5px;
     font-weight: 900;
     font-size: 1rem;
+    background-color: #D9C673;
+    color: #2E2E80;
 }
 
-#side-bar button:hover span {
+.sidebar-buttons:hover {
+    cursor: pointer;
+}
+
+.sidebar-buttons:hover span {
     display: none;
 }
 
-#hardcover-fiction-button {
-    background-color: #ebeb00;
-}
+// #hardcover-fiction-button {
+//     background-color: #ebeb00;
+// }
 
-#paperback-fiction-button {
-    background-color: #ffa500;
-}
+// #paperback-fiction-button {
+//     background-color: #ffa500;
+// }
 
-#hardcover-nonfiction-button {
-    background-color: #e06f1f;
-}
+// #hardcover-nonfiction-button {
+//     background-color: #e06f1f;
+// }
 
-#paperback-nonfiction-button {
-    background-color: #ff0000;
-}
+// #paperback-nonfiction-button {
+//     background-color: #ff0000;
+// }
 
-#advice-button {
-    background-color: #e4516a;
-}
+// #advice-button {
+//     background-color: #e4516a;
+// }
 
-#mid-grade-hardcover-button {
-    background-color: #ff00ff;
-}
+// #mid-grade-hardcover-button {
+//     background-color: #ff00ff;
+// }
 
-#picture-book-button {
-    background-color: #8a2be2;
-}
+// #picture-book-button {
+//     background-color: #8a2be2;
+// }
 
-#children-series-button {
-    // background-color: black;
-    background-color: #0088ff;
-}
+// #children-series-button {
+//     // background-color: black;
+//     background-color: #0088ff;
+// }
 
-#ya-hardcover-button {
-    background-color: #00ff00;
-}
+// #ya-hardcover-button {
+//     background-color: #00ff00;
+// }
 
 #hardcover-fiction-button:hover:before {
     content: "Hardcover Fiction";
@@ -246,15 +280,15 @@ body {
     right: 5px;
     max-width: 300px;
     white-space: nowrap;
-    box-shadow: -2px 5px 2px grey;
+    box-shadow: -2px 5px 2px #D9C673;
     z-index: 2;
 }
 
 main {
     align-self: flex-start;
-    border: 1px solid black;
+    // border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 0px 10px 5px grey;
+    // box-shadow: 0px 1px 5px grey;
     margin-top: 20px;
     margin-right: 80px;
     vertical-align: top;
@@ -262,6 +296,7 @@ main {
     height: 55vh;
     display: inline-block;
     overflow: scroll;
+    background-color: #FFFCF0;
 }
 
 
@@ -270,13 +305,15 @@ main {
     font-size: 24px;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: #2E2E80;
 }
 
 .list-div {
     display: flex;
     align-items: start;
-    border: 1px solid black;
+    // border: 1px solid black;
     border-radius: 5px;
+    box-shadow: 0px 5px 5px #EFEFFF;
     margin-left: 50px;
     margin-bottom: 10px;
     width: 90%;
@@ -303,7 +340,7 @@ main {
 .list-title {
     font-size: 1.5rem;
     font-weight: 900;
-    color: black;
+    color: #2E2E80;
     font-family: "Roboto", sans-serif;
     margin-top: 10px;
     margin-bottom: 25px;
@@ -335,11 +372,11 @@ footer {
     bottom: 0;
     left: 0;
     width: 100vw;
-    background-color: black;
+    background-color: #2E2E80;
     padding: 15px;
     text-align: center;
     font-size: 14px;
-    color: white;
+    color: #FFFCF0;
 }
 
 .hidden {
