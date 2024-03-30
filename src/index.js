@@ -90,6 +90,28 @@ async function createList() {
     }
 }
 
+async function createList2() {
+    const template = document.querySelector('#list-item-template');
+    for (const result of list) {
+        const clone = template.content.cloneNode(true);
+        const imageSrc = await fetchGoogleData(result.book_details[0].title, result.isbns[0].isbn13)
+        const listImage = clone.querySelector('.list-image');
+        listImage.setAttribute("src", imageSrc);
+        listImage.setAttribute("alt", result.book_details[0].title);
+        const listLink = clone.querySelector('.list-link');
+        listLink.setAttribute("href", result.amazon_product_url);
+        const listTitle = clone.querySelector('.list-title');
+        listTitle.textContent = result.book_details[0].title;
+        const listAuthor = clone.querySelector('.list-author');
+        listAuthor.textContent = `by ${result.book_details[0].author}`;
+        const listDescription = clone.querySelector('.list-description');
+        listDescription.textContent = result.book_details[0].description;
+        mainContainer.appendChild(clone);
+    }
+}
+createList2()
+
+
 function createCanvas() {
     while (canvasContainer.firstChild) {
         canvasContainer.removeChild(canvasContainer.firstChild);
