@@ -54,43 +54,43 @@ async function fetchGoogleData(bookTitle, isbn13) {
     }
 }
 
-async function createList() {
-    for (const result of list) {
-        let listDiv = document.createElement("div");
-        listDiv.classList.add("list-div");
-        let listImage = document.createElement("img");
-        listImage.classList.add("list-image");
-        let imageSrc = await fetchGoogleData(result.book_details[0].title, result.isbns[0].isbn13)
-        listImage.setAttribute("src", imageSrc);
-        let listLink = document.createElement("a");
-        listLink.classList.add("list-link");
-        listLink.href = result.amazon_product_url;
-        listLink.target = "_blank";
-        let listTitle = document.createElement("h1");
-        listTitle.classList.add("list-title");
-        let listAuthor = document.createElement("p");
-        listAuthor.classList.add("list-author");
-        let listDescription = document.createElement("p");
-        listDescription.classList.add("list-description");
-        listTitle.innerHTML = result.book_details[0].title;
-        listAuthor.innerHTML = `by ${result.book_details[0].author}`;
-        listDescription.innerHTML = result.book_details[0].description;
-        let imageDiv = document.createElement("div");
-        imageDiv.classList.add("image-div");
-        let contentDiv = document.createElement("div");
-        contentDiv.classList.add("content-div");
-        imageDiv.appendChild(listImage);
-        listLink.appendChild(listTitle);
-        contentDiv.appendChild(listLink);
-        contentDiv.appendChild(listAuthor);
-        contentDiv.appendChild(listDescription);
-        listDiv.appendChild(imageDiv);
-        listDiv.appendChild(contentDiv);
-        mainContainer.appendChild(listDiv);
-    }
-}
+// async function createList() {
+//     for (const result of list) {
+//         let listDiv = document.createElement("div");
+//         listDiv.classList.add("list-div");
+//         let listImage = document.createElement("img");
+//         listImage.classList.add("list-image");
+//         let imageSrc = await fetchGoogleData(result.book_details[0].title, result.isbns[0].isbn13)
+//         listImage.setAttribute("src", imageSrc);
+//         let listLink = document.createElement("a");
+//         listLink.classList.add("list-link");
+//         listLink.href = result.amazon_product_url;
+//         listLink.target = "_blank";
+//         let listTitle = document.createElement("h1");
+//         listTitle.classList.add("list-title");
+//         let listAuthor = document.createElement("p");
+//         listAuthor.classList.add("list-author");
+//         let listDescription = document.createElement("p");
+//         listDescription.classList.add("list-description");
+//         listTitle.innerHTML = result.book_details[0].title;
+//         listAuthor.innerHTML = `by ${result.book_details[0].author}`;
+//         listDescription.innerHTML = result.book_details[0].description;
+//         let imageDiv = document.createElement("div");
+//         imageDiv.classList.add("image-div");
+//         let contentDiv = document.createElement("div");
+//         contentDiv.classList.add("content-div");
+//         imageDiv.appendChild(listImage);
+//         listLink.appendChild(listTitle);
+//         contentDiv.appendChild(listLink);
+//         contentDiv.appendChild(listAuthor);
+//         contentDiv.appendChild(listDescription);
+//         listDiv.appendChild(imageDiv);
+//         listDiv.appendChild(contentDiv);
+//         mainContainer.appendChild(listDiv);
+//     }
+// }
 
-async function createList2() {
+async function createList() {
     const template = document.querySelector('#list-item-template');
     for (const result of list) {
         const clone = template.content.cloneNode(true);
@@ -109,7 +109,7 @@ async function createList2() {
         mainContainer.appendChild(clone);
     }
 }
-createList2()
+// createList2()
 
 
 function createCanvas() {
