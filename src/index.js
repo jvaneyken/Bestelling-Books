@@ -166,7 +166,14 @@ window.onload = function(e) {
 };
 
 
-
+const sideBarButtons = document.querySelectorAll('.sidebar-buttons');
+console.log(sideBarButtons, "SIDEBAR BUTTONS")
+sideBarButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log("THIS BUTTON", e.target.dataset.url)
+    })
+})
 
 let hardcoverFictionButton = document.getElementById("hardcover-fiction-button")
 hardcoverFictionButton.addEventListener('click', async e => {
