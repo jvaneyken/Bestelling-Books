@@ -123,59 +123,17 @@ function createCanvas() {
     return canvas;
 }
 
-window.onload = function(e) {
-    listName = "list=hardcover-fiction";
-    // if (dateOutput) {
-    //     listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    // } else {
-        listUrl = `${apiURL}&${listName}`;
-    // }
-    
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-    
-    e.preventDefault();
-    fetchData().then(async () => {
-        let canvas = createCanvas();
-
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#ffff00";
-        bookFunction(canvas, booksArray, weeksArray);
-
-        // const dateContent = document.getElementById("date-input");
-        // const date = document.createElement("div");
-        // date.classList.add("week-of-div");
-        // if (dateContent.value) {
-        //     date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-        //         month: 'long',
-        //         day: 'numeric',
-        //         year: 'numeric',
-        //         timeZone: 'UTC'
-        //     })}`;
-        // }
-
-        // mainContainer.appendChild(date);
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-    });
-};
-
-
-const sideBarButtons = document.querySelectorAll('.sidebar-buttons');
-sideBarButtons.forEach(button => {
-    button.addEventListener('click', async (e) => {
-        console.log("THIS BUTTON", e.target.dataset.url)
+async function filterByGenre(e) {
+    if (e.target.dataset) {
         listName = `list=${e.target.dataset.url}`;
-        if (dateOutput) {
-            listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-        } else {
-            listUrl = `${apiURL}&${listName}`;
-        }
+    } else {
+        listName = "list=hardcover-fiction";
+    }
+    if (dateOutput) {
+        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+    } else {
+        listUrl = `${apiURL}&${listName}`;
+    }
 
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
@@ -207,6 +165,43 @@ sideBarButtons.forEach(button => {
     ListHeader.innerHTML = list[0].display_name;
     mainContainer.appendChild(ListHeader);
     createList();
+}
+
+window.onload = function(e) {
+    // listName = "list=hardcover-fiction";
+
+    // listUrl = `${apiURL}&${listName}`;
+   
+    
+    // while (mainContainer.firstChild) {
+    //     mainContainer.removeChild(mainContainer.firstChild);
+    // }
+    
+    // e.preventDefault();
+    // fetchData().then(async () => {
+    //     let canvas = createCanvas();
+
+    //     booksArray = list.map(book => book.book_details[0].title);
+    //     weeksArray = list.map(week => week.weeks_on_list);
+        
+    //     bookFunction(canvas, booksArray, weeksArray);
+
+    
+    //     let ListHeader = document.createElement("h1");
+    //     ListHeader.classList.add("list-header");
+    //     ListHeader.innerHTML = list[0].display_name;
+    //     mainContainer.appendChild(ListHeader);
+    //     createList();
+    // });
+    filterByGenre(e)
+};
+
+
+const sideBarButtons = document.querySelectorAll('.sidebar-buttons');
+sideBarButtons.forEach(button => {
+    button.addEventListener('click', async (e) => {
+        console.log("THIS BUTTON", e.target.dataset.url)
+        filterByGenre(e);
     })
 })
 
