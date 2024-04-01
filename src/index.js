@@ -167,23 +167,15 @@ window.onload = function(e) {
 
 
 const sideBarButtons = document.querySelectorAll('.sidebar-buttons');
-console.log(sideBarButtons, "SIDEBAR BUTTONS")
 sideBarButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
+    button.addEventListener('click', async (e) => {
         console.log("THIS BUTTON", e.target.dataset.url)
-    })
-})
-
-let hardcoverFictionButton = document.getElementById("hardcover-fiction-button")
-hardcoverFictionButton.addEventListener('click', async e => {
-    listName = "list=hardcover-fiction";
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
-
+        listName = `list=${e.target.dataset.url}`;
+        if (dateOutput) {
+            listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+        } else {
+            listUrl = `${apiURL}&${listName}`;
+        }
 
     while (mainContainer.firstChild) {
         mainContainer.removeChild(mainContainer.firstChild);
@@ -197,7 +189,6 @@ hardcoverFictionButton.addEventListener('click', async e => {
     // const backgroundColor = "#ffff00";
     bookFunction(canvas, booksArray, weeksArray);
 
-
     const dateContent = document.getElementById("date-input");
     const date = document.createElement("div");
     date.classList.add("week-of-div");
@@ -210,365 +201,409 @@ hardcoverFictionButton.addEventListener('click', async e => {
             })}`;
         }
         
-        mainContainer.appendChild(date);
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
-    
-    let paperbackFictionButton = document.getElementById("paperback-fiction-button")
-    paperbackFictionButton.addEventListener('click', async e => {
-        listName = "list=trade-fiction-paperback";
-    
-        if (dateOutput) {
-            listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-        } else {
-            listUrl = `${apiURL}&${listName}`;
-        }
-    
-        while (mainContainer.firstChild) {
-            mainContainer.removeChild(mainContainer.firstChild);
-        }
-            e.preventDefault();
-            await fetchData();
-    
-            let canvas = createCanvas();
-    
-            booksArray = list.map(book => book.book_details[0].title);
-            weeksArray = list.map(week => week.weeks_on_list);
-            // const backgroundColor = "#ffa500";
-            bookFunction(canvas, booksArray, weeksArray);
-    
-            const dateContent = document.getElementById("date-input");
-            const date = document.createElement("div");
-            date.classList.add("week-of-div");
-            if (dateContent.value) {
-                date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric',
-                    timeZone: 'UTC'
-                })}`;
-            }
-    
-            mainContainer.appendChild(date);
-    
-            let ListHeader = document.createElement("h1");
-            ListHeader.classList.add("list-header");
-            ListHeader.innerHTML = list[0].display_name;
-            mainContainer.appendChild(ListHeader);
-            createList();
+    mainContainer.appendChild(date);
+    let ListHeader = document.createElement("h1");
+    ListHeader.classList.add("list-header");
+    ListHeader.innerHTML = list[0].display_name;
+    mainContainer.appendChild(ListHeader);
+    createList();
     })
-
-let hardcoverNonfictionButton = document.getElementById("hardcover-nonfiction-button")
-hardcoverNonfictionButton.addEventListener('click', async e => {
-    listName = "list=hardcover-nonfiction";
-
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
-
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
-
-        let canvas = createCanvas();
-
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#e06f1f";
-        bookFunction(canvas, booksArray, weeksArray);
-
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-                timeZone: 'UTC'
-            })}`;
-        }
-
-        mainContainer.appendChild(date);
-
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
 })
 
-let paperbackNonfictionButton = document.getElementById("paperback-nonfiction-button")
-paperbackNonfictionButton.addEventListener('click', async e => {
-    listName = "list=paperback-nonfiction";
+// let hardcoverFictionButton = document.getElementById("hardcover-fiction-button")
+// hardcoverFictionButton.addEventListener('click', async e => {
+//     listName = "list=hardcover-fiction";
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
 
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
 
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//     e.preventDefault();
+//     await fetchData();
+//     let canvas = createCanvas();
 
-        let canvas = createCanvas();
+//     booksArray = list.map(book => book.book_details[0].title);
+//     weeksArray = list.map(week => week.weeks_on_list);
+//     // const backgroundColor = "#ffff00";
+//     bookFunction(canvas, booksArray, weeksArray);
 
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#ff0000";
-        bookFunction(canvas, booksArray, weeksArray);
 
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-                timeZone: 'UTC'
-            })}`;
-        }
-
-        mainContainer.appendChild(date);
-
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
-
-let adviceButton = document.getElementById("advice-button")
-adviceButton.addEventListener('click', async e => {
-    listName = "list=advice-how-to-and-miscellaneous";
-
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
-
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
-
-        let canvas = createCanvas();
-
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#e4516a";
-        bookFunction(canvas, booksArray, weeksArray);
-
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-                timeZone: 'UTC'
-            })}`;
-        }
-
-        mainContainer.appendChild(date);
-
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
-
-let midGradeHardcoverButton = document.getElementById("mid-grade-hardcover-button")
-midGradeHardcoverButton.addEventListener('click', async e => {
-    listName = "list=childrens-middle-grade-hardcover";
-
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
-
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
-
-        let canvas = createCanvas();
-
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#ff00ff"
-        bookFunction(canvas, booksArray, weeksArray);
-
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-                timeZone: 'UTC'
-            })}`;
-        }
-
-        mainContainer.appendChild(date);
-
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
-
-let pictureBookButton = document.getElementById("picture-book-button")
-pictureBookButton.addEventListener('click', async e => {
-    listName = "list=picture-books";
-
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
-
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
-
-        let canvas = createCanvas();
-
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#8a2be2";
-        bookFunction(canvas, booksArray, weeksArray);
-
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-                timeZone: 'UTC'
-            })}`;
-        }
-
-        mainContainer.appendChild(date);
-
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
-
-let childrenSeries = document.getElementById("children-series-button")
-childrenSeries.addEventListener('click', async e => {
-    listName = "list=series-books";
-
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
+//     const dateContent = document.getElementById("date-input");
+//     const date = document.createElement("div");
+//     date.classList.add("week-of-div");
+//     if (dateContent.value) {
+//         date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//             month: 'long',
+//             day: 'numeric',
+//             year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
+        
+//         mainContainer.appendChild(date);
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
     
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
+//     let paperbackFictionButton = document.getElementById("paperback-fiction-button")
+//     paperbackFictionButton.addEventListener('click', async e => {
+//         listName = "list=trade-fiction-paperback";
+    
+//         if (dateOutput) {
+//             listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//         } else {
+//             listUrl = `${apiURL}&${listName}`;
+//         }
+    
+//         while (mainContainer.firstChild) {
+//             mainContainer.removeChild(mainContainer.firstChild);
+//         }
+//             e.preventDefault();
+//             await fetchData();
+    
+//             let canvas = createCanvas();
+    
+//             booksArray = list.map(book => book.book_details[0].title);
+//             weeksArray = list.map(week => week.weeks_on_list);
+//             // const backgroundColor = "#ffa500";
+//             bookFunction(canvas, booksArray, weeksArray);
+    
+//             const dateContent = document.getElementById("date-input");
+//             const date = document.createElement("div");
+//             date.classList.add("week-of-div");
+//             if (dateContent.value) {
+//                 date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                     month: 'long',
+//                     day: 'numeric',
+//                     year: 'numeric',
+//                     timeZone: 'UTC'
+//                 })}`;
+//             }
+    
+//             mainContainer.appendChild(date);
+    
+//             let ListHeader = document.createElement("h1");
+//             ListHeader.classList.add("list-header");
+//             ListHeader.innerHTML = list[0].display_name;
+//             mainContainer.appendChild(ListHeader);
+//             createList();
+//     })
 
-        let canvas = createCanvas();
+// let hardcoverNonfictionButton = document.getElementById("hardcover-nonfiction-button")
+// hardcoverNonfictionButton.addEventListener('click', async e => {
+//     listName = "list=hardcover-nonfiction";
 
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#0088ff";
-        bookFunction(canvas, booksArray, weeksArray);
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
 
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-                timeZone: 'UTC'
-            })}`;
-        }
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//         e.preventDefault();
+//         await fetchData();
 
-        mainContainer.appendChild(date);
+//         let canvas = createCanvas();
 
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
+//         booksArray = list.map(book => book.book_details[0].title);
+//         weeksArray = list.map(week => week.weeks_on_list);
+//         // const backgroundColor = "#e06f1f";
+//         bookFunction(canvas, booksArray, weeksArray);
 
-let youngAdultHardcover = document.getElementById("ya-hardcover-button")
-youngAdultHardcover.addEventListener('click', async e => {
-    listName = "list=young-adult-hardcover";
+//         const dateContent = document.getElementById("date-input");
+//         const date = document.createElement("div");
+//         date.classList.add("week-of-div");
+//         if (dateContent.value) {
+//             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
 
-    if (dateOutput) {
-        listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
-    } else {
-        listUrl = `${apiURL}&${listName}`;
-    }
+//         mainContainer.appendChild(date);
 
-    while (mainContainer.firstChild) {
-        mainContainer.removeChild(mainContainer.firstChild);
-    }
-        e.preventDefault();
-        await fetchData();
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
 
-        let canvas = createCanvas();
+// let paperbackNonfictionButton = document.getElementById("paperback-nonfiction-button")
+// paperbackNonfictionButton.addEventListener('click', async e => {
+//     listName = "list=paperback-nonfiction";
 
-        booksArray = list.map(book => book.book_details[0].title);
-        weeksArray = list.map(week => week.weeks_on_list);
-        // const backgroundColor = "#00ff00";
-        bookFunction(canvas, booksArray, weeksArray);
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
 
-        const dateContent = document.getElementById("date-input");
-        const date = document.createElement("div");
-        date.classList.add("week-of-div");
-        if (dateContent.value) {
-            date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-                timeZone: 'UTC'
-            })}`;
-        }
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//         e.preventDefault();
+//         await fetchData();
 
-        mainContainer.appendChild(date);
+//         let canvas = createCanvas();
 
-        let ListHeader = document.createElement("h1");
-        ListHeader.classList.add("list-header");
-        ListHeader.innerHTML = list[0].display_name;
-        mainContainer.appendChild(ListHeader);
-        createList();
-})
+//         booksArray = list.map(book => book.book_details[0].title);
+//         weeksArray = list.map(week => week.weeks_on_list);
+//         // const backgroundColor = "#ff0000";
+//         bookFunction(canvas, booksArray, weeksArray);
+
+//         const dateContent = document.getElementById("date-input");
+//         const date = document.createElement("div");
+//         date.classList.add("week-of-div");
+//         if (dateContent.value) {
+//             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
+
+//         mainContainer.appendChild(date);
+
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
+
+// let adviceButton = document.getElementById("advice-button")
+// adviceButton.addEventListener('click', async e => {
+//     listName = "list=advice-how-to-and-miscellaneous";
+
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
+
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//         e.preventDefault();
+//         await fetchData();
+
+//         let canvas = createCanvas();
+
+//         booksArray = list.map(book => book.book_details[0].title);
+//         weeksArray = list.map(week => week.weeks_on_list);
+//         // const backgroundColor = "#e4516a";
+//         bookFunction(canvas, booksArray, weeksArray);
+
+//         const dateContent = document.getElementById("date-input");
+//         const date = document.createElement("div");
+//         date.classList.add("week-of-div");
+//         if (dateContent.value) {
+//             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
+
+//         mainContainer.appendChild(date);
+
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
+
+// let midGradeHardcoverButton = document.getElementById("mid-grade-hardcover-button")
+// midGradeHardcoverButton.addEventListener('click', async e => {
+//     listName = "list=childrens-middle-grade-hardcover";
+
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
+
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//         e.preventDefault();
+//         await fetchData();
+
+//         let canvas = createCanvas();
+
+//         booksArray = list.map(book => book.book_details[0].title);
+//         weeksArray = list.map(week => week.weeks_on_list);
+//         // const backgroundColor = "#ff00ff"
+//         bookFunction(canvas, booksArray, weeksArray);
+
+//         const dateContent = document.getElementById("date-input");
+//         const date = document.createElement("div");
+//         date.classList.add("week-of-div");
+//         if (dateContent.value) {
+//             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
+
+//         mainContainer.appendChild(date);
+
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
+
+// let pictureBookButton = document.getElementById("picture-book-button")
+// pictureBookButton.addEventListener('click', async e => {
+//     listName = "list=picture-books";
+
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
+
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//         e.preventDefault();
+//         await fetchData();
+
+//         let canvas = createCanvas();
+
+//         booksArray = list.map(book => book.book_details[0].title);
+//         weeksArray = list.map(week => week.weeks_on_list);
+//         // const backgroundColor = "#8a2be2";
+//         bookFunction(canvas, booksArray, weeksArray);
+
+//         const dateContent = document.getElementById("date-input");
+//         const date = document.createElement("div");
+//         date.classList.add("week-of-div");
+//         if (dateContent.value) {
+//             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
+
+//         mainContainer.appendChild(date);
+
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
+
+// let childrenSeries = document.getElementById("children-series-button")
+// childrenSeries.addEventListener('click', async e => {
+//     listName = "list=series-books";
+
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
+    
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//         e.preventDefault();
+//         await fetchData();
+
+//         let canvas = createCanvas();
+
+//         booksArray = list.map(book => book.book_details[0].title);
+//         weeksArray = list.map(week => week.weeks_on_list);
+//         // const backgroundColor = "#0088ff";
+//         bookFunction(canvas, booksArray, weeksArray);
+
+//         const dateContent = document.getElementById("date-input");
+//         const date = document.createElement("div");
+//         date.classList.add("week-of-div");
+//         if (dateContent.value) {
+//             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
+
+//         mainContainer.appendChild(date);
+
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
+
+// let youngAdultHardcover = document.getElementById("ya-hardcover-button")
+// youngAdultHardcover.addEventListener('click', async e => {
+//     listName = "list=young-adult-hardcover";
+
+//     if (dateOutput) {
+//         listUrl = `${apiURL}&${listName}&published-date=${dateOutput}`;
+//     } else {
+//         listUrl = `${apiURL}&${listName}`;
+//     }
+
+//     while (mainContainer.firstChild) {
+//         mainContainer.removeChild(mainContainer.firstChild);
+//     }
+//         e.preventDefault();
+//         await fetchData();
+
+//         let canvas = createCanvas();
+
+//         booksArray = list.map(book => book.book_details[0].title);
+//         weeksArray = list.map(week => week.weeks_on_list);
+//         // const backgroundColor = "#00ff00";
+//         bookFunction(canvas, booksArray, weeksArray);
+
+//         const dateContent = document.getElementById("date-input");
+//         const date = document.createElement("div");
+//         date.classList.add("week-of-div");
+//         if (dateContent.value) {
+//             date.innerHTML = `You are viewing the list for the week of: ${new Date(dateContent.value).toLocaleDateString("en-US", {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric',
+//                 timeZone: 'UTC'
+//             })}`;
+//         }
+
+//         mainContainer.appendChild(date);
+
+//         let ListHeader = document.createElement("h1");
+//         ListHeader.classList.add("list-header");
+//         ListHeader.innerHTML = list[0].display_name;
+//         mainContainer.appendChild(ListHeader);
+//         createList();
+// })
 
 
 // let listButton = document.getElementById("list-button");
