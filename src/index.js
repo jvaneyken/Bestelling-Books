@@ -138,7 +138,6 @@ window.onload = function(e) {
 const sideBarButtons = document.querySelectorAll('.sidebar-buttons');
 sideBarButtons.forEach(button => {
     button.addEventListener('click', async (e) => {
-        console.log("THIS BUTTON", e.target.dataset.url)
         filterByGenre(e);
     })
 })
